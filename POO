@@ -1,0 +1,98 @@
+Rafael Lima Morial
+
+package uscs;
+
+import java.util.Arrays;
+
+public class Aluno {
+ public String nome;
+ public int codmat;
+ public String cpf;
+ public char sexo;
+ public double notaP1;
+ public double notaP2;
+ public double notaP3;
+
+ public Aluno(String nome, int codmat, String cpf, char sexo, double notaP1, double notaP2, double notaP3) {
+this.nome = nome;
+this.codmat = codmat;
+this.cpf = cpf;
+this.sexo = sexo;
+this.notaP1 = notaP1;
+this.notaP2 = notaP2;
+    this.notaP3 = notaP3;
+}
+
+public void imprimeAluno( ) {
+System.out.println("Nome: " + this.nome);
+System.out.println("Código: " + this.codmat);
+System.out.println("CPF: " + this.cpf);
+System.out.println("Sexo: " + this.sexo);
+System.out.println("Nota P1: " + this.notaP1);
+System.out.println("Nota P2: " + this.notaP2);
+System.out.println("Nota P3: " + this.notaP3);
+}
+public void imprimeSexo( ) {
+System.out.println("Nome: " + this.nome);
+
+if (this.sexo == 'M')
+System.out.println("Sexo Masculino");
+else
+System.out.println("Sexo Feminino");
+
+}
+     public double mediaAluno(){
+double[] listaNotas = new double[3];
+listaNotas[0] = this.notaP1;
+listaNotas[1] = this.notaP2;
+     listaNotas[2] = this.notaP3;
+     Arrays.sort(listaNotas); //ordenação do array//
+     return (listaNotas[1] + listaNotas[2]) / 2.0;
+}
+     
+     public String Resultado() {
+    if(this.mediaAluno() >= 6)
+    return("Aprovado");
+    else
+    return("Reprovado");
+     }
+     
+}
+
+
+
+
+
+ALUNO TESTE
+
+package uscs;
+
+public class Aluno2 {
+public static void main(String[] args) {
+Aluno x1 = new Aluno ("Paulo",
+      55123,
+                       "800912345-12",
+                       'M',
+                       7.0,
+                       6.0,
+                       8.0);
+
+Aluno x2 = new Aluno ("Julia Akemi",
+      991239,
+                "500876123-15",
+                'F',
+                2.0,
+                6.0,
+                9.0);
+System.out.println("---------------------------");
+x1.imprimeAluno();
+x1.imprimeSexo();
+        System.out.println("Média: " + x1.mediaAluno());
+System.out.println(x1.Resultado());
+System.out.println("--------------------------");
+x2.imprimeAluno();
+x2.imprimeSexo();
+System.out.println(x2.Resultado());
+System.out.println("-----------------------------");
+}
+}
